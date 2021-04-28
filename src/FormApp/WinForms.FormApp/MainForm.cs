@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinForms.FormApp.Forms.Demonstracao;
 using WinForms.FormApp.Forms.Mascara;
+using WinForms.FormApp.Forms.Validacao;
 
 namespace WinForms.FormApp
 {
@@ -28,6 +29,12 @@ namespace WinForms.FormApp
         private void buttonMascara_Click(object sender, EventArgs e)
         {
             MascaraForm f = new MascaraForm();
+            f.ShowDialog();
+        }
+
+        private void buttonValidacao_Click(object sender, EventArgs e)
+        {
+            MainValidacaoForm f = new MainValidacaoForm();
             f.ShowDialog();
         }
     }

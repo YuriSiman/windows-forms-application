@@ -52,6 +52,7 @@ namespace WinForms.FormApp
             this.buttonValidacao.TabIndex = 3;
             this.buttonValidacao.Text = "Validações";
             this.buttonValidacao.UseVisualStyleBackColor = true;
+            this.buttonValidacao.Click += new System.EventHandler(this.buttonValidacao_Click);
             // 
             // buttonMascara
             // 
