@@ -19,7 +19,7 @@ namespace WinForms.FormApp
                 components.Dispose();
             }
             base.Dispose(disposing);
-        }
+        }   
 
         #region Windows Form Designer generated code
 
@@ -39,8 +39,9 @@ namespace WinForms.FormApp
             this.toolStripMenuItemWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemCascata = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHorizontal = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemSobre = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemVertical = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemSobre = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAjuda = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +51,8 @@ namespace WinForms.FormApp
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemArquivo,
             this.toolStripMenuItemWindows,
-            this.toolStripMenuItemSobre});
+            this.toolStripMenuItemSobre,
+            this.toolStripMenuItemAjuda});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(800, 28);
@@ -128,18 +130,24 @@ namespace WinForms.FormApp
             this.toolStripMenuItemHorizontal.Text = "Horizontal";
             this.toolStripMenuItemHorizontal.Click += new System.EventHandler(this.toolStripMenuItemHorizontal_Click);
             // 
-            // toolStripMenuItemSobre
-            // 
-            this.toolStripMenuItemSobre.Name = "toolStripMenuItemSobre";
-            this.toolStripMenuItemSobre.Size = new System.Drawing.Size(62, 24);
-            this.toolStripMenuItemSobre.Text = "Sobre";
-            // 
             // toolStripMenuItemVertical
             // 
             this.toolStripMenuItemVertical.Name = "toolStripMenuItemVertical";
             this.toolStripMenuItemVertical.Size = new System.Drawing.Size(162, 26);
             this.toolStripMenuItemVertical.Text = "Vertical";
             this.toolStripMenuItemVertical.Click += new System.EventHandler(this.toolStripMenuItemVertical_Click);
+            // 
+            // toolStripMenuItemSobre
+            // 
+            this.toolStripMenuItemSobre.Name = "toolStripMenuItemSobre";
+            this.toolStripMenuItemSobre.Size = new System.Drawing.Size(62, 24);
+            this.toolStripMenuItemSobre.Text = "Sobre";
+            // 
+            // toolStripMenuItemAjuda
+            // 
+            this.toolStripMenuItemAjuda.Name = "toolStripMenuItemAjuda";
+            this.toolStripMenuItemAjuda.Size = new System.Drawing.Size(62, 24);
+            this.toolStripMenuItemAjuda.Text = "Ajuda";
             // 
             // MainForm
             // 
@@ -171,6 +179,7 @@ namespace WinForms.FormApp
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCascata;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHorizontal;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVertical;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAjuda;
     }
 }
 
