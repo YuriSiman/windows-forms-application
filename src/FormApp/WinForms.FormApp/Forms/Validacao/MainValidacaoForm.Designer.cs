@@ -60,6 +60,8 @@ namespace WinForms.FormApp.Forms.Validacao
             this.ClientSize = new System.Drawing.Size(535, 491);
             this.Controls.Add(this.buttonSenha);
             this.Controls.Add(this.buttonCPF);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainValidacaoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Validações";

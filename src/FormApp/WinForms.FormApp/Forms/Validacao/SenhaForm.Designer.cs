@@ -81,6 +81,8 @@ namespace WinForms.FormApp.Forms.Validacao
             this.Controls.Add(this.buttonLimpar);
             this.Controls.Add(this.buttonVerSenha);
             this.Controls.Add(this.textBoxSenha);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SenhaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SenhaForm";

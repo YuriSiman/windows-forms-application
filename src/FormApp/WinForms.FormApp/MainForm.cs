@@ -14,28 +14,51 @@ using WinForms.FormApp.Forms.Validacao;
 namespace WinForms.FormApp
 {
     public partial class MainForm : Form
-    {
+    { 
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void buttonDemonstracao_Click(object sender, EventArgs e)
+        private void toolStripMenuItemDemonstracao_Click(object sender, EventArgs e)
         {
             DemonstracaoKeyForm f = new DemonstracaoKeyForm();
-            f.ShowDialog();
+            f.MdiParent = this;
+            f.Show();
         }
 
-        private void buttonMascara_Click(object sender, EventArgs e)
-        {
-            MascaraForm f = new MascaraForm();
-            f.ShowDialog();
-        }
-
-        private void buttonValidacao_Click(object sender, EventArgs e)
+        private void toolStripMenuItemValidacao_Click(object sender, EventArgs e)
         {
             MainValidacaoForm f = new MainValidacaoForm();
-            f.ShowDialog();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void toolStripMenuItemMascara_Click(object sender, EventArgs e)
+        {
+            MascaraForm f = new MascaraForm();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void toolStripMenuItemCascata_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void toolStripMenuItemHorizontal_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void toolStripMenuItemVertical_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void toolStripMenuItemSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -70,6 +70,8 @@ namespace WinForms.FormApp.Forms.Validacao
             this.Controls.Add(this.buttonLimpar);
             this.Controls.Add(this.buttonValidar);
             this.Controls.Add(this.maskedTextBoxCPF);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "CpfForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CpfForm";

@@ -53,6 +53,9 @@ namespace WinForms.FormApp.Forms.Demonstracao
             // 
             // textBoxMsg
             // 
+            this.textBoxMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxMsg.Location = new System.Drawing.Point(12, 62);
             this.textBoxMsg.Multiline = true;
             this.textBoxMsg.Name = "textBoxMsg";
@@ -63,6 +66,7 @@ namespace WinForms.FormApp.Forms.Demonstracao
             // 
             // buttonLimparCampos
             // 
+            this.buttonLimparCampos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLimparCampos.Location = new System.Drawing.Point(429, 12);
             this.buttonLimparCampos.Name = "buttonLimparCampos";
             this.buttonLimparCampos.Size = new System.Drawing.Size(94, 29);
@@ -73,6 +77,7 @@ namespace WinForms.FormApp.Forms.Demonstracao
             // 
             // labelMinus
             // 
+            this.labelMinus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMinus.AutoSize = true;
             this.labelMinus.Location = new System.Drawing.Point(353, 104);
             this.labelMinus.Name = "labelMinus";
@@ -82,6 +87,7 @@ namespace WinForms.FormApp.Forms.Demonstracao
             // 
             // labelMaius
             // 
+            this.labelMaius.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMaius.AutoSize = true;
             this.labelMaius.Location = new System.Drawing.Point(353, 156);
             this.labelMaius.Name = "labelMaius";
@@ -91,6 +97,7 @@ namespace WinForms.FormApp.Forms.Demonstracao
             // 
             // labelUpper
             // 
+            this.labelUpper.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelUpper.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labelUpper.Location = new System.Drawing.Point(410, 91);
             this.labelUpper.Name = "labelUpper";
@@ -99,6 +106,7 @@ namespace WinForms.FormApp.Forms.Demonstracao
             // 
             // labelLower
             // 
+            this.labelLower.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelLower.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labelLower.Location = new System.Drawing.Point(410, 143);
             this.labelLower.Name = "labelLower";
@@ -107,6 +115,7 @@ namespace WinForms.FormApp.Forms.Demonstracao
             // 
             // buttonSair
             // 
+            this.buttonSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSair.Location = new System.Drawing.Point(429, 450);
             this.buttonSair.Name = "buttonSair";
             this.buttonSair.Size = new System.Drawing.Size(94, 29);
@@ -117,6 +126,7 @@ namespace WinForms.FormApp.Forms.Demonstracao
             // 
             // labelNome
             // 
+            this.labelNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelNome.AutoSize = true;
             this.labelNome.Location = new System.Drawing.Point(12, 362);
             this.labelNome.Name = "labelNome";
@@ -126,6 +136,7 @@ namespace WinForms.FormApp.Forms.Demonstracao
             // 
             // textBoxNome
             // 
+            this.textBoxNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxNome.Location = new System.Drawing.Point(12, 400);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(335, 27);
@@ -133,6 +144,7 @@ namespace WinForms.FormApp.Forms.Demonstracao
             // 
             // buttonNome
             // 
+            this.buttonNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonNome.Location = new System.Drawing.Point(12, 450);
             this.buttonNome.Name = "buttonNome";
             this.buttonNome.Size = new System.Drawing.Size(94, 29);
@@ -143,6 +155,7 @@ namespace WinForms.FormApp.Forms.Demonstracao
             // 
             // buttonLimparNome
             // 
+            this.buttonLimparNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonLimparNome.Location = new System.Drawing.Point(112, 450);
             this.buttonLimparNome.Name = "buttonLimparNome";
             this.buttonLimparNome.Size = new System.Drawing.Size(112, 29);
@@ -168,6 +181,8 @@ namespace WinForms.FormApp.Forms.Demonstracao
             this.Controls.Add(this.buttonLimparCampos);
             this.Controls.Add(this.textBoxMsg);
             this.Controls.Add(this.textBoxInput);
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(553, 538);
             this.Name = "DemonstracaoKeyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DemonstracaoKeyForm";

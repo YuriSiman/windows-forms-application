@@ -151,6 +151,8 @@ namespace WinForms.FormApp.Forms.Mascara
             this.Controls.Add(this.buttonCEP);
             this.Controls.Add(this.buttonHora);
             this.Controls.Add(this.maskedTextBoxMascara);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MascaraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MascaraForm";
