@@ -15,5 +15,11 @@ namespace WinForms.FormApp.Forms.Validacao
             CpfForm f = new CpfForm();
             f.ShowDialog();
         }
+
+        private void buttonSenha_Click(object sender, EventArgs e)
+        {
+            SenhaForm f = new SenhaForm();
+            f.ShowDialog();
+        }
     }
 }

@@ -51,6 +51,7 @@ namespace WinForms.FormApp.Forms.Validacao
             this.buttonSenha.TabIndex = 1;
             this.buttonSenha.Text = "Senha";
             this.buttonSenha.UseVisualStyleBackColor = true;
+            this.buttonSenha.Click += new System.EventHandler(this.buttonSenha_Click);
             // 
             // MainValidacaoForm
             // 
