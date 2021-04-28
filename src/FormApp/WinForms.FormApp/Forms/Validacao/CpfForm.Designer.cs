@@ -60,6 +60,7 @@ namespace WinForms.FormApp.Forms.Validacao
             this.buttonLimpar.TabIndex = 2;
             this.buttonLimpar.Text = "Limpar";
             this.buttonLimpar.UseVisualStyleBackColor = true;
+            this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
             // CpfForm
             // 
@@ -79,7 +80,6 @@ namespace WinForms.FormApp.Forms.Validacao
 
         #endregion
 
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxC;
         private System.Windows.Forms.Button buttonValidar;
         private System.Windows.Forms.Button buttonLimpar;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCPF;

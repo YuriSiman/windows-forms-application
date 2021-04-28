@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{4E84
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms.FormApp", "src\FormApp\WinForms.FormApp\WinForms.FormApp.csproj", "{1989700D-5C9E-433A-8C8F-CED57ECA05A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms.Library", "src\Library\WinForms.Library\WinForms.Library.csproj", "{D030782A-E43A-487A-B730-A91145C7BE2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1989700D-5C9E-433A-8C8F-CED57ECA05A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1989700D-5C9E-433A-8C8F-CED57ECA05A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1989700D-5C9E-433A-8C8F-CED57ECA05A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D030782A-E43A-487A-B730-A91145C7BE2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D030782A-E43A-487A-B730-A91145C7BE2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D030782A-E43A-487A-B730-A91145C7BE2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D030782A-E43A-487A-B730-A91145C7BE2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -29,6 +35,7 @@ Global
 		{7455359B-2FB3-45FF-BA12-656F7F731EF5} = {54458125-6497-4093-927E-BDF83C3844A2}
 		{4E84A4B3-6E04-49B8-AEDF-A76A84D41D41} = {54458125-6497-4093-927E-BDF83C3844A2}
 		{1989700D-5C9E-433A-8C8F-CED57ECA05A1} = {7455359B-2FB3-45FF-BA12-656F7F731EF5}
+		{D030782A-E43A-487A-B730-A91145C7BE2A} = {4E84A4B3-6E04-49B8-AEDF-A76A84D41D41}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {63D47443-E438-4BE5-A5E2-F884C6DD02A2}

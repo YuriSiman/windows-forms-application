@@ -41,6 +41,7 @@ namespace WinForms.FormApp.Forms.Validacao
             this.buttonCPF.TabIndex = 0;
             this.buttonCPF.Text = "CPF";
             this.buttonCPF.UseVisualStyleBackColor = true;
+            this.buttonCPF.Click += new System.EventHandler(this.buttonCPF_Click);
             // 
             // buttonSenha
             // 
