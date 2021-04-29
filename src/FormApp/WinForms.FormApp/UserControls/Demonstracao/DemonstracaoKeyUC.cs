@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinForms.FormApp.Forms.Demonstracao
+namespace WinForms.FormApp.UserControls.Demonstracao
 {
-    public partial class DemonstracaoKeyForm : Form
+    public partial class DemonstracaoKeyUC : UserControl
     {
-        public DemonstracaoKeyForm()
+        public DemonstracaoKeyUC()
         {
             InitializeComponent();
         }
@@ -43,11 +43,6 @@ namespace WinForms.FormApp.Forms.Demonstracao
         private void buttonLimparNome_Click(object sender, EventArgs e)
         {
             textBoxNome.Text = "";
-        }
-
-        private void buttonSair_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

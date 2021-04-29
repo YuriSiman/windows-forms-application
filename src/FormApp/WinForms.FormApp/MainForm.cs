@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinForms.FormApp.Forms.Demonstracao;
 using WinForms.FormApp.Forms.Mascara;
 using WinForms.FormApp.Forms.Validacao;
+using WinForms.FormApp.UserControls.Demonstracao;
+using WinForms.FormApp.UserControls.Sobre;
 
 namespace WinForms.FormApp
 {
     public partial class MainForm : Form
-    { 
+    {
+
+        int tabPagContSobre = 0, tabPagContDemonstracao = 0;
+
         public MainForm()
         {
             InitializeComponent();
@@ -22,38 +19,47 @@ namespace WinForms.FormApp
 
         private void toolStripMenuItemDemonstracao_Click(object sender, EventArgs e)
         {
-            DemonstracaoKeyForm f = new DemonstracaoKeyForm();
-            f.MdiParent = this;
-            f.Show();
+            tabPagContDemonstracao++;
+
+            DemonstracaoKeyUC uc = new DemonstracaoKeyUC();
+            TabPage tb = new TabPage();
+
+            uc.Dock = DockStyle.Fill;
+            tb.Name = $"Demonstração {tabPagContDemonstracao}";
+            tb.Text = $"Demonstração {tabPagContDemonstracao}";
+            tb.Controls.Add(uc);
+            tabControlWindows.TabPages.Add(tb);
         }
 
         private void toolStripMenuItemValidacao_Click(object sender, EventArgs e)
         {
             MainValidacaoForm f = new MainValidacaoForm();
-            f.MdiParent = this;
-            f.Show();
+            f.ShowDialog();
         }
 
         private void toolStripMenuItemMascara_Click(object sender, EventArgs e)
         {
             MascaraForm f = new MascaraForm();
-            f.MdiParent = this;
-            f.Show();
+            f.ShowDialog();
         }
 
-        private void toolStripMenuItemCascata_Click(object sender, EventArgs e)
+        private void toolStripMenuItemSobreAplicacao_Click(object sender, EventArgs e)
         {
-            this.LayoutMdi(MdiLayout.Cascade);
+            SobreUC uc = new SobreUC();
+            TabPage tb = new TabPage();
+
+            tabPagContSobre++;
+
+            uc.Dock = DockStyle.Fill;
+            tb.Name = $"Sobre a Aplicação {tabPagContSobre}";
+            tb.Text = $"Sobre a Aplicação {tabPagContSobre}";
+            tb.Controls.Add(uc);
+            tabControlWindows.TabPages.Add(tb);
         }
 
-        private void toolStripMenuItemHorizontal_Click(object sender, EventArgs e)
+        private void toolStripMenuItemFecharAba_Click(object sender, EventArgs e)
         {
-            this.LayoutMdi(MdiLayout.TileHorizontal);
-        }
-
-        private void toolStripMenuItemVertical_Click(object sender, EventArgs e)
-        {
-            this.LayoutMdi(MdiLayout.TileVertical);
+            if(!(tabControlWindows.SelectedTab == null)) tabControlWindows.TabPages.Remove(tabControlWindows.SelectedTab);
         }
 
         private void toolStripMenuItemSair_Click(object sender, EventArgs e)
