@@ -31,6 +31,9 @@ namespace WinForms.FormApp
         {
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemArquivo = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemLogin = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemNovoUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemSairUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNovo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemDemonstracao = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemValidacao = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +46,7 @@ namespace WinForms.FormApp
             this.toolStripMenuItemSobreAplicacao = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAjuda = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlWindows = new System.Windows.Forms.TabControl();
+            this.toolStripMenuItemAlterarUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +66,7 @@ namespace WinForms.FormApp
             // toolStripMenuItemArquivo
             // 
             this.toolStripMenuItemArquivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemLogin,
             this.toolStripMenuItemNovo,
             this.toolStripMenuItemAbrir,
             this.toolStripMenuItemFecharAba,
@@ -69,6 +74,30 @@ namespace WinForms.FormApp
             this.toolStripMenuItemArquivo.Name = "toolStripMenuItemArquivo";
             this.toolStripMenuItemArquivo.Size = new System.Drawing.Size(75, 24);
             this.toolStripMenuItemArquivo.Text = "Arquivo";
+            // 
+            // toolStripMenuItemLogin
+            // 
+            this.toolStripMenuItemLogin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemNovoUsuario,
+            this.toolStripMenuItemAlterarUsuario,
+            this.toolStripMenuItemSairUsuario});
+            this.toolStripMenuItemLogin.Name = "toolStripMenuItemLogin";
+            this.toolStripMenuItemLogin.Size = new System.Drawing.Size(294, 26);
+            this.toolStripMenuItemLogin.Text = "Login";
+            // 
+            // toolStripMenuItemNovoUsuario
+            // 
+            this.toolStripMenuItemNovoUsuario.Name = "toolStripMenuItemNovoUsuario";
+            this.toolStripMenuItemNovoUsuario.Size = new System.Drawing.Size(191, 26);
+            this.toolStripMenuItemNovoUsuario.Text = "Novo Usuário";
+            this.toolStripMenuItemNovoUsuario.Click += new System.EventHandler(this.toolStripMenuItemNovoUsuario_Click);
+            // 
+            // toolStripMenuItemSairUsuario
+            // 
+            this.toolStripMenuItemSairUsuario.Name = "toolStripMenuItemSairUsuario";
+            this.toolStripMenuItemSairUsuario.Size = new System.Drawing.Size(191, 26);
+            this.toolStripMenuItemSairUsuario.Text = "Sair";
+            this.toolStripMenuItemSairUsuario.Click += new System.EventHandler(this.toolStripMenuItemSairUsuario_Click);
             // 
             // toolStripMenuItemNovo
             // 
@@ -169,6 +198,13 @@ namespace WinForms.FormApp
             this.tabControlWindows.Size = new System.Drawing.Size(800, 422);
             this.tabControlWindows.TabIndex = 7;
             // 
+            // toolStripMenuItemAlterarUsuario
+            // 
+            this.toolStripMenuItemAlterarUsuario.Name = "toolStripMenuItemAlterarUsuario";
+            this.toolStripMenuItemAlterarUsuario.Size = new System.Drawing.Size(191, 26);
+            this.toolStripMenuItemAlterarUsuario.Text = "Alterar Usuário";
+            this.toolStripMenuItemAlterarUsuario.Click += new System.EventHandler(this.toolStripMenuItemAlterarUsuario_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -202,6 +238,10 @@ namespace WinForms.FormApp
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFecharAba;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAbrir;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNovoArquivo;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLogin;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNovoUsuario;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSairUsuario;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAlterarUsuario;
     }
 }
 

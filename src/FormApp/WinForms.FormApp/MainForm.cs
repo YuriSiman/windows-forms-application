@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WinForms.FormApp.Forms.Login;
 using WinForms.FormApp.Forms.Mascara;
 using WinForms.FormApp.Forms.Validacao;
 using WinForms.FormApp.UserControls.AbrirArquivo;
@@ -16,6 +17,17 @@ namespace WinForms.FormApp
         public MainForm()
         {
             InitializeComponent();
+            HabilitarAbas(false);
+        }
+
+        private void HabilitarAbas(bool result)
+        {
+            toolStripMenuItemAbrir.Enabled = result;
+            toolStripMenuItemFecharAba.Enabled = result;
+            toolStripMenuItemNovo.Enabled = result;
+            toolStripMenuItemSobreAplicacao.Enabled = result;
+            toolStripMenuItemSairUsuario.Enabled = result;
+            toolStripMenuItemAlterarUsuario.Enabled = result;
         }
 
         private void toolStripMenuItemDemonstracao_Click(object sender, EventArgs e)
@@ -63,6 +75,36 @@ namespace WinForms.FormApp
             if(!(tabControlWindows.SelectedTab == null)) tabControlWindows.TabPages.Remove(tabControlWindows.SelectedTab);
         }
 
+        private void toolStripMenuItemNovoUsuario_Click(object sender, EventArgs e)
+        {
+            LoginForm f = new LoginForm();
+            f.ShowDialog();
+
+            if (f.DialogResult == DialogResult.OK)
+            {
+                HabilitarAbas(true);
+                toolStripMenuItemNovoUsuario.Enabled = false;
+            }
+        }
+
+        private void toolStripMenuItemAlterarUsuario_Click(object sender, EventArgs e)
+        {
+            LoginForm f = new LoginForm();
+            f.ShowDialog();
+
+            if (f.DialogResult == DialogResult.OK)
+            {
+                HabilitarAbas(true);
+                toolStripMenuItemNovoUsuario.Enabled = false;
+            }
+        }
+
+        private void toolStripMenuItemSairUsuario_Click(object sender, EventArgs e)
+        {
+            HabilitarAbas(false);
+            toolStripMenuItemNovoUsuario.Enabled = true;
+        }
+
         private void toolStripMenuItemNovoArquivo_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -86,6 +128,7 @@ namespace WinForms.FormApp
                 tabControlWindows.TabPages.Add(tb);
             }
         }
+
 
 
         private void toolStripMenuItemSair_Click(object sender, EventArgs e)
