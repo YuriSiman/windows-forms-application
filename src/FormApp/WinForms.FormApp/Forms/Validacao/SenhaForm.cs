@@ -36,7 +36,7 @@ namespace WinForms.FormApp.Forms.Validacao
 
         private void textBoxSenha_KeyDown(object sender, KeyEventArgs e)
         {
-            ValidacaoForcaSenha validarSenha = new ValidacaoForcaSenha();
+            ValidacaoSenha validarSenha = new ValidacaoSenha();
 
             ForcaSenha forca = validarSenha.GetForcaDaSenha(textBoxSenha.Text);
             labelSenha.Text = forca.ToString();

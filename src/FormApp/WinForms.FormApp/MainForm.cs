@@ -30,6 +30,13 @@ namespace WinForms.FormApp
             toolStripMenuItemAlterarUsuario.Enabled = result;
         }
 
+        private void ZerarContadorAbas()
+        {
+            tabPagContSobre = 0;
+            tabPagContDemonstracao = 0;
+            tabPagContDiretorio = 0;
+        }
+
         private void toolStripMenuItemDemonstracao_Click(object sender, EventArgs e)
         {
             tabPagContDemonstracao++;
@@ -94,6 +101,12 @@ namespace WinForms.FormApp
 
             if (f.DialogResult == DialogResult.OK)
             {
+                for (int i = tabControlWindows.TabPages.Count - 1; i >= 0; i--)
+                {
+                    tabControlWindows.TabPages.Remove(tabControlWindows.TabPages[i]);
+                }
+
+                ZerarContadorAbas();
                 HabilitarAbas(true);
                 toolStripMenuItemNovoUsuario.Enabled = false;
             }
@@ -101,8 +114,17 @@ namespace WinForms.FormApp
 
         private void toolStripMenuItemSairUsuario_Click(object sender, EventArgs e)
         {
-            HabilitarAbas(false);
-            toolStripMenuItemNovoUsuario.Enabled = true;
+            if (MessageBox.Show("Você realmente deseja sair?", "Mensagem de Validação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                for (int i = tabControlWindows.TabPages.Count - 1; i >= 0; i--)
+                {
+                    tabControlWindows.TabPages.Remove(tabControlWindows.TabPages[i]);
+                }
+
+                ZerarContadorAbas();
+                HabilitarAbas(false);
+                toolStripMenuItemNovoUsuario.Enabled = true;
+            }
         }
 
         private void toolStripMenuItemNovoArquivo_Click(object sender, EventArgs e)

@@ -4,8 +4,18 @@ using WinForms.Library.Validations.Enums;
 
 namespace WinForms.Library.Validations
 {
-    public class ValidacaoForcaSenha
+    public class ValidacaoSenha
     {
+        public bool ValidaSenhaLogin(string usuario, string senha)
+        {
+            if (usuario == "yuri" && senha == "123456")
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public int geraPontosSenha(string senha)
         {
             if (senha == null) return 0;
@@ -49,7 +59,7 @@ namespace WinForms.Library.Validations
 
         private int GetPontoPorRepeticao(string senha)
         {
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"(\w)*.*\1");
+            Regex regex = new Regex(@"(\w)*.*\1");
             bool repete = regex.IsMatch(senha);
             if (repete)
             {
