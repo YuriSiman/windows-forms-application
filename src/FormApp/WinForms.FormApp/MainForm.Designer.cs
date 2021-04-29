@@ -35,6 +35,8 @@ namespace WinForms.FormApp
             this.toolStripMenuItemDemonstracao = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemValidacao = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemMascara = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAbrir = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemNovoArquivo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemFecharAba = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSair = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSobre = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +63,7 @@ namespace WinForms.FormApp
             // 
             this.toolStripMenuItemArquivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemNovo,
+            this.toolStripMenuItemAbrir,
             this.toolStripMenuItemFecharAba,
             this.toolStripMenuItemSair});
             this.toolStripMenuItemArquivo.Name = "toolStripMenuItemArquivo";
@@ -74,41 +77,65 @@ namespace WinForms.FormApp
             this.toolStripMenuItemValidacao,
             this.toolStripMenuItemMascara});
             this.toolStripMenuItemNovo.Name = "toolStripMenuItemNovo";
-            this.toolStripMenuItemNovo.Size = new System.Drawing.Size(205, 26);
+            this.toolStripMenuItemNovo.Size = new System.Drawing.Size(294, 26);
             this.toolStripMenuItemNovo.Text = "Novo";
             // 
             // toolStripMenuItemDemonstracao
             // 
             this.toolStripMenuItemDemonstracao.Name = "toolStripMenuItemDemonstracao";
-            this.toolStripMenuItemDemonstracao.Size = new System.Drawing.Size(195, 26);
+            this.toolStripMenuItemDemonstracao.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.D)));
+            this.toolStripMenuItemDemonstracao.Size = new System.Drawing.Size(288, 26);
             this.toolStripMenuItemDemonstracao.Text = "Demonstrações";
             this.toolStripMenuItemDemonstracao.Click += new System.EventHandler(this.toolStripMenuItemDemonstracao_Click);
             // 
             // toolStripMenuItemValidacao
             // 
             this.toolStripMenuItemValidacao.Name = "toolStripMenuItemValidacao";
-            this.toolStripMenuItemValidacao.Size = new System.Drawing.Size(195, 26);
+            this.toolStripMenuItemValidacao.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.V)));
+            this.toolStripMenuItemValidacao.Size = new System.Drawing.Size(288, 26);
             this.toolStripMenuItemValidacao.Text = "Validações";
             this.toolStripMenuItemValidacao.Click += new System.EventHandler(this.toolStripMenuItemValidacao_Click);
             // 
             // toolStripMenuItemMascara
             // 
             this.toolStripMenuItemMascara.Name = "toolStripMenuItemMascara";
-            this.toolStripMenuItemMascara.Size = new System.Drawing.Size(195, 26);
+            this.toolStripMenuItemMascara.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.M)));
+            this.toolStripMenuItemMascara.Size = new System.Drawing.Size(288, 26);
             this.toolStripMenuItemMascara.Text = "Máscaras";
             this.toolStripMenuItemMascara.Click += new System.EventHandler(this.toolStripMenuItemMascara_Click);
+            // 
+            // toolStripMenuItemAbrir
+            // 
+            this.toolStripMenuItemAbrir.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemNovoArquivo});
+            this.toolStripMenuItemAbrir.Name = "toolStripMenuItemAbrir";
+            this.toolStripMenuItemAbrir.Size = new System.Drawing.Size(294, 26);
+            this.toolStripMenuItemAbrir.Text = "Abrir";
+            // 
+            // toolStripMenuItemNovoArquivo
+            // 
+            this.toolStripMenuItemNovoArquivo.Name = "toolStripMenuItemNovoArquivo";
+            this.toolStripMenuItemNovoArquivo.Size = new System.Drawing.Size(153, 26);
+            this.toolStripMenuItemNovoArquivo.Text = "Arquivo...";
+            this.toolStripMenuItemNovoArquivo.Click += new System.EventHandler(this.toolStripMenuItemNovoArquivo_Click);
             // 
             // toolStripMenuItemFecharAba
             // 
             this.toolStripMenuItemFecharAba.Name = "toolStripMenuItemFecharAba";
-            this.toolStripMenuItemFecharAba.Size = new System.Drawing.Size(205, 26);
+            this.toolStripMenuItemFecharAba.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.F)));
+            this.toolStripMenuItemFecharAba.Size = new System.Drawing.Size(294, 26);
             this.toolStripMenuItemFecharAba.Text = "Fechar Aba Atual";
             this.toolStripMenuItemFecharAba.Click += new System.EventHandler(this.toolStripMenuItemFecharAba_Click);
             // 
             // toolStripMenuItemSair
             // 
             this.toolStripMenuItemSair.Name = "toolStripMenuItemSair";
-            this.toolStripMenuItemSair.Size = new System.Drawing.Size(205, 26);
+            this.toolStripMenuItemSair.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
+            this.toolStripMenuItemSair.Size = new System.Drawing.Size(294, 26);
             this.toolStripMenuItemSair.Text = "Sair";
             this.toolStripMenuItemSair.Click += new System.EventHandler(this.toolStripMenuItemSair_Click);
             // 
@@ -173,6 +200,8 @@ namespace WinForms.FormApp
         private System.Windows.Forms.TabControl tabControlWindows;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSobreAplicacao;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFecharAba;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAbrir;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNovoArquivo;
     }
 }
 

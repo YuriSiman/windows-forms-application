@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using WinForms.FormApp.Forms.Mascara;
 using WinForms.FormApp.Forms.Validacao;
+using WinForms.FormApp.UserControls.AbrirArquivo;
 using WinForms.FormApp.UserControls.Demonstracao;
 using WinForms.FormApp.UserControls.Sobre;
 
@@ -10,7 +11,7 @@ namespace WinForms.FormApp
     public partial class MainForm : Form
     {
 
-        int tabPagContSobre = 0, tabPagContDemonstracao = 0;
+        int tabPagContSobre = 0, tabPagContDemonstracao = 0, tabPagContDiretorio = 0;
 
         public MainForm()
         {
@@ -61,6 +62,31 @@ namespace WinForms.FormApp
         {
             if(!(tabControlWindows.SelectedTab == null)) tabControlWindows.TabPages.Remove(tabControlWindows.SelectedTab);
         }
+
+        private void toolStripMenuItemNovoArquivo_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.InitialDirectory = "C:\\";
+            fileDialog.Title = "Escolha o arquivo";
+
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var nomeArquivo = fileDialog.FileName;
+
+
+                AbrirArquivoUC uc = new AbrirArquivoUC(nomeArquivo);
+                TabPage tb = new TabPage();
+
+                tabPagContDiretorio++;
+
+                uc.Dock = DockStyle.Fill;
+                tb.Name = $"Diretório {tabPagContDiretorio}";
+                tb.Text = $"Diretório {tabPagContDiretorio}";
+                tb.Controls.Add(uc);
+                tabControlWindows.TabPages.Add(tb);
+            }
+        }
+
 
         private void toolStripMenuItemSair_Click(object sender, EventArgs e)
         {
