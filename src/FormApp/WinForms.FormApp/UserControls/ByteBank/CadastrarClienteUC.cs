@@ -26,7 +26,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
 
         private void checkBoxNaoTrabalho_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxNaoTrabalho.Checked)
+            if (checkBoxDesempregado.Checked)
             {
                 ClienteTrabalhaAtualmente(false);
             }
