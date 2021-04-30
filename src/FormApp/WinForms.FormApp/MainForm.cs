@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using WinForms.FormApp.Forms.Login;
 using WinForms.FormApp.Forms.Mascara;
@@ -35,6 +36,13 @@ namespace WinForms.FormApp
             tabPagContSobre = 0;
             tabPagContDemonstracao = 0;
             tabPagContDiretorio = 0;
+        }
+
+        private ToolStripMenuItem DesenhaItemMenu(string text)
+        {
+            var toolMenuItem = new ToolStripMenuItem();
+            toolMenuItem.Text = text;
+            return toolMenuItem;
         }
 
         private void toolStripMenuItemDemonstracao_Click(object sender, EventArgs e)
@@ -151,7 +159,17 @@ namespace WinForms.FormApp
             }
         }
 
-
+        private void MainForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var contextMenu = new ContextMenuStrip();
+               
+                contextMenu.Items.Add(DesenhaItemMenu("Item Menu 1"));
+                contextMenu.Items.Add(DesenhaItemMenu("Item Menu 2"));
+                contextMenu.Show(this, new Point(e.X, e.Y));
+            }
+        }
 
         private void toolStripMenuItemSair_Click(object sender, EventArgs e)
         {

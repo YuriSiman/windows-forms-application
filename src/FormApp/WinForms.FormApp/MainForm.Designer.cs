@@ -33,6 +33,7 @@ namespace WinForms.FormApp
             this.toolStripMenuItemArquivo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemLogin = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNovoUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAlterarUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSairUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNovo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemDemonstracao = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,6 @@ namespace WinForms.FormApp
             this.toolStripMenuItemSobreAplicacao = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAjuda = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlWindows = new System.Windows.Forms.TabControl();
-            this.toolStripMenuItemAlterarUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +91,13 @@ namespace WinForms.FormApp
             this.toolStripMenuItemNovoUsuario.Size = new System.Drawing.Size(191, 26);
             this.toolStripMenuItemNovoUsuario.Text = "Novo Usuário";
             this.toolStripMenuItemNovoUsuario.Click += new System.EventHandler(this.toolStripMenuItemNovoUsuario_Click);
+            // 
+            // toolStripMenuItemAlterarUsuario
+            // 
+            this.toolStripMenuItemAlterarUsuario.Name = "toolStripMenuItemAlterarUsuario";
+            this.toolStripMenuItemAlterarUsuario.Size = new System.Drawing.Size(191, 26);
+            this.toolStripMenuItemAlterarUsuario.Text = "Alterar Usuário";
+            this.toolStripMenuItemAlterarUsuario.Click += new System.EventHandler(this.toolStripMenuItemAlterarUsuario_Click);
             // 
             // toolStripMenuItemSairUsuario
             // 
@@ -198,13 +205,6 @@ namespace WinForms.FormApp
             this.tabControlWindows.Size = new System.Drawing.Size(800, 422);
             this.tabControlWindows.TabIndex = 7;
             // 
-            // toolStripMenuItemAlterarUsuario
-            // 
-            this.toolStripMenuItemAlterarUsuario.Name = "toolStripMenuItemAlterarUsuario";
-            this.toolStripMenuItemAlterarUsuario.Size = new System.Drawing.Size(191, 26);
-            this.toolStripMenuItemAlterarUsuario.Text = "Alterar Usuário";
-            this.toolStripMenuItemAlterarUsuario.Click += new System.EventHandler(this.toolStripMenuItemAlterarUsuario_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -216,6 +216,7 @@ namespace WinForms.FormApp
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WinForms Application";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.ResumeLayout(false);
