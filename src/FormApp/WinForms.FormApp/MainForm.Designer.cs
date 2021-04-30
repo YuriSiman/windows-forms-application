@@ -47,6 +47,9 @@ namespace WinForms.FormApp
             this.toolStripMenuItemSobreAplicacao = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAjuda = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlWindows = new System.Windows.Forms.TabControl();
+            this.toolStripMenuItemByteBank = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemCadastrarCliente = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +58,7 @@ namespace WinForms.FormApp
             this.menuStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemArquivo,
+            this.toolStripMenuItemByteBank,
             this.toolStripMenuItemSobre,
             this.toolStripMenuItemAjuda});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
@@ -206,6 +210,29 @@ namespace WinForms.FormApp
             this.tabControlWindows.TabIndex = 7;
             this.tabControlWindows.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControlWindows_MouseDown);
             // 
+            // toolStripMenuItemByteBank
+            // 
+            this.toolStripMenuItemByteBank.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemCadastrarCliente});
+            this.toolStripMenuItemByteBank.Name = "toolStripMenuItemByteBank";
+            this.toolStripMenuItemByteBank.Size = new System.Drawing.Size(84, 24);
+            this.toolStripMenuItemByteBank.Text = "ByteBank";
+            // 
+            // toolStripMenuItemCadastrarCliente
+            // 
+            this.toolStripMenuItemCadastrarCliente.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemCliente});
+            this.toolStripMenuItemCadastrarCliente.Name = "toolStripMenuItemCadastrarCliente";
+            this.toolStripMenuItemCadastrarCliente.Size = new System.Drawing.Size(155, 26);
+            this.toolStripMenuItemCadastrarCliente.Text = "Cadastrar";
+            // 
+            // toolStripMenuItemCliente
+            // 
+            this.toolStripMenuItemCliente.Name = "toolStripMenuItemCliente";
+            this.toolStripMenuItemCliente.Size = new System.Drawing.Size(138, 26);
+            this.toolStripMenuItemCliente.Text = "Cliente";
+            this.toolStripMenuItemCliente.Click += new System.EventHandler(this.toolStripMenuItemCliente_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -243,6 +270,9 @@ namespace WinForms.FormApp
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNovoUsuario;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSairUsuario;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAlterarUsuario;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemByteBank;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCadastrarCliente;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCliente;
     }
 }
 

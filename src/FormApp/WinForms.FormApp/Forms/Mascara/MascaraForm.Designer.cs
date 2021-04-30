@@ -131,7 +131,7 @@ namespace WinForms.FormApp.Forms.Mascara
             this.buttonSair.Location = new System.Drawing.Point(429, 450);
             this.buttonSair.Name = "buttonSair";
             this.buttonSair.Size = new System.Drawing.Size(94, 29);
-            this.buttonSair.TabIndex = 9;
+            this.buttonSair.TabIndex = 8;
             this.buttonSair.Text = "Sair";
             this.buttonSair.UseVisualStyleBackColor = true;
             this.buttonSair.Click += new System.EventHandler(this.buttonSair_Click);

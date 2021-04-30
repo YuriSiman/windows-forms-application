@@ -5,6 +5,7 @@ using WinForms.FormApp.Forms.Login;
 using WinForms.FormApp.Forms.Mascara;
 using WinForms.FormApp.Forms.Validacao;
 using WinForms.FormApp.UserControls.AbrirArquivo;
+using WinForms.FormApp.UserControls.ByteBank;
 using WinForms.FormApp.UserControls.Demonstracao;
 using WinForms.FormApp.UserControls.Sobre;
 
@@ -13,7 +14,7 @@ namespace WinForms.FormApp
     public partial class MainForm : Form
     {
 
-        int tabPagContSobre = 0, tabPagContDemonstracao = 0, tabPagContDiretorio = 0;
+        int tabPagContSobre = 0, tabPagContDemonstracao = 0, tabPagContDiretorio = 0, tabPagContCadastrarCliente = 0;
 
         public MainForm()
         {
@@ -29,6 +30,7 @@ namespace WinForms.FormApp
             toolStripMenuItemSobreAplicacao.Enabled = result;
             toolStripMenuItemSairUsuario.Enabled = result;
             toolStripMenuItemAlterarUsuario.Enabled = result;
+            toolStripMenuItemCadastrarCliente.Enabled = result;
         }
 
         private void ZerarContadorAbas()
@@ -45,11 +47,17 @@ namespace WinForms.FormApp
             return toolMenuItem;
         }
 
+        private void ApagarAbaSelecionada(TabPage tabPage)
+        {
+            if (tabPage.Name == "Cadastrar Cliente") tabPagContCadastrarCliente = 0;
+            tabControlWindows.TabPages.Remove(tabPage);
+        }
+
         private void ApagarAbasEsquerda(int tabSelecionada)
         {
             for (int i = tabSelecionada - 1; i >= 0; i--)
             {
-                tabControlWindows.TabPages.Remove(tabControlWindows.TabPages[i]);
+                ApagarAbaSelecionada(tabControlWindows.TabPages[i]);
             }
         }
 
@@ -57,22 +65,8 @@ namespace WinForms.FormApp
         {
             for (int i = tabControlWindows.TabCount - 1; i > tabSelecionada; i--)
             {
-                tabControlWindows.TabPages.Remove(tabControlWindows.TabPages[i]);
+                ApagarAbaSelecionada(tabControlWindows.TabPages[i]);
             }
-        }
-
-        private void toolStripMenuItemDemonstracao_Click(object sender, EventArgs e)
-        {
-            tabPagContDemonstracao++;
-
-            DemonstracaoKeyUC uc = new DemonstracaoKeyUC();
-            TabPage tb = new TabPage();
-
-            uc.Dock = DockStyle.Fill;
-            tb.Name = $"Demonstração {tabPagContDemonstracao}";
-            tb.Text = $"Demonstração {tabPagContDemonstracao}";
-            tb.Controls.Add(uc);
-            tabControlWindows.TabPages.Add(tb);
         }
 
         private void toolStripMenuItemValidacao_Click(object sender, EventArgs e)
@@ -85,25 +79,6 @@ namespace WinForms.FormApp
         {
             MascaraForm f = new MascaraForm();
             f.ShowDialog();
-        }
-
-        private void toolStripMenuItemSobreAplicacao_Click(object sender, EventArgs e)
-        {
-            SobreUC uc = new SobreUC();
-            TabPage tb = new TabPage();
-
-            tabPagContSobre++;
-
-            uc.Dock = DockStyle.Fill;
-            tb.Name = $"Sobre a Aplicação {tabPagContSobre}";
-            tb.Text = $"Sobre a Aplicação {tabPagContSobre}";
-            tb.Controls.Add(uc);
-            tabControlWindows.TabPages.Add(tb);
-        }
-
-        private void toolStripMenuItemFecharAba_Click(object sender, EventArgs e)
-        {
-            if (!(tabControlWindows.SelectedTab == null)) tabControlWindows.TabPages.Remove(tabControlWindows.SelectedTab);
         }
 
         private void toolStripMenuItemNovoUsuario_Click(object sender, EventArgs e)
@@ -127,7 +102,7 @@ namespace WinForms.FormApp
             {
                 for (int i = tabControlWindows.TabPages.Count - 1; i >= 0; i--)
                 {
-                    tabControlWindows.TabPages.Remove(tabControlWindows.TabPages[i]);
+                    ApagarAbaSelecionada(tabControlWindows.TabPages[i]);
                 }
 
                 ZerarContadorAbas();
@@ -142,13 +117,46 @@ namespace WinForms.FormApp
             {
                 for (int i = tabControlWindows.TabPages.Count - 1; i >= 0; i--)
                 {
-                    tabControlWindows.TabPages.Remove(tabControlWindows.TabPages[i]);
+                    ApagarAbaSelecionada(tabControlWindows.TabPages[i]);
                 }
 
                 ZerarContadorAbas();
                 HabilitarAbas(false);
                 toolStripMenuItemNovoUsuario.Enabled = true;
             }
+        }
+
+        private void toolStripMenuItemDemonstracao_Click(object sender, EventArgs e)
+        {
+            tabPagContDemonstracao++;
+
+            DemonstracaoKeyUC uc = new DemonstracaoKeyUC();
+            TabPage tb = new TabPage();
+
+            uc.Dock = DockStyle.Fill;
+            tb.Name = $"Demonstração {tabPagContDemonstracao}";
+            tb.Text = $"Demonstração {tabPagContDemonstracao}";
+            tb.Controls.Add(uc);
+            tabControlWindows.TabPages.Add(tb);
+        }
+
+        private void toolStripMenuItemSobreAplicacao_Click(object sender, EventArgs e)
+        {
+            SobreUC uc = new SobreUC();
+            TabPage tb = new TabPage();
+
+            tabPagContSobre++;
+
+            uc.Dock = DockStyle.Fill;
+            tb.Name = $"Sobre a Aplicação {tabPagContSobre}";
+            tb.Text = $"Sobre a Aplicação {tabPagContSobre}";
+            tb.Controls.Add(uc);
+            tabControlWindows.TabPages.Add(tb);
+        }
+
+        private void toolStripMenuItemFecharAba_Click(object sender, EventArgs e)
+        {
+            if (!(tabControlWindows.SelectedTab == null)) ApagarAbaSelecionada(tabControlWindows.SelectedTab);
         }
 
         private void toolStripMenuItemNovoArquivo_Click(object sender, EventArgs e)
@@ -175,6 +183,27 @@ namespace WinForms.FormApp
             }
         }
 
+        private void toolStripMenuItemCliente_Click(object sender, EventArgs e)
+        {
+            if (tabPagContCadastrarCliente == 0)
+            {
+                tabPagContCadastrarCliente++;
+
+                CadastrarClienteUC uc = new CadastrarClienteUC();
+                TabPage tb = new TabPage();
+
+                uc.Dock = DockStyle.Fill;
+                tb.Name = $"Cadastrar Cliente";
+                tb.Text = $"Cadastrar Cliente";
+                tb.Controls.Add(uc);
+                tabControlWindows.TabPages.Add(tb);
+            }
+            else
+            {
+                MessageBox.Show("Não é possível abrir mais de uma aba para Cadastrar o Cliente", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void tabControlWindows_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -198,7 +227,7 @@ namespace WinForms.FormApp
 
         private void toolMenuItem1_Click(object sender, EventArgs e)
         {
-            tabControlWindows.TabPages.Remove(tabControlWindows.SelectedTab);
+            ApagarAbaSelecionada(tabControlWindows.SelectedTab);
         }
 
         private void toolMenuItem2_Click(object sender, EventArgs e)
@@ -215,7 +244,7 @@ namespace WinForms.FormApp
         {
             ApagarAbasEsquerda(tabControlWindows.SelectedIndex);
             ApagarAbasDireita(tabControlWindows.SelectedIndex);
-            tabControlWindows.TabPages.Remove(tabControlWindows.SelectedTab);
+            ApagarAbaSelecionada(tabControlWindows.SelectedTab);
         }
 
         private void toolStripMenuItemSair_Click(object sender, EventArgs e)

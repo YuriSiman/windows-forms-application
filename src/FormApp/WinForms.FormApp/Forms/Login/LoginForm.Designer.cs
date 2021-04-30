@@ -96,7 +96,7 @@ namespace WinForms.FormApp.Forms.Login
             this.textBoxUsuario.Location = new System.Drawing.Point(527, 108);
             this.textBoxUsuario.Name = "textBoxUsuario";
             this.textBoxUsuario.Size = new System.Drawing.Size(243, 27);
-            this.textBoxUsuario.TabIndex = 5;
+            this.textBoxUsuario.TabIndex = 0;
             // 
             // textBoxSenha
             // 
@@ -104,7 +104,7 @@ namespace WinForms.FormApp.Forms.Login
             this.textBoxSenha.Name = "textBoxSenha";
             this.textBoxSenha.PasswordChar = '*';
             this.textBoxSenha.Size = new System.Drawing.Size(243, 27);
-            this.textBoxSenha.TabIndex = 6;
+            this.textBoxSenha.TabIndex = 1;
             // 
             // labelUsuario
             // 
@@ -129,7 +129,7 @@ namespace WinForms.FormApp.Forms.Login
             this.buttonSair.Location = new System.Drawing.Point(676, 390);
             this.buttonSair.Name = "buttonSair";
             this.buttonSair.Size = new System.Drawing.Size(94, 29);
-            this.buttonSair.TabIndex = 9;
+            this.buttonSair.TabIndex = 4;
             this.buttonSair.Text = "Sair";
             this.buttonSair.UseVisualStyleBackColor = true;
             this.buttonSair.Click += new System.EventHandler(this.buttonSair_Click);

@@ -48,7 +48,7 @@ namespace WinForms.FormApp.UserControls.Demonstracao
             this.buttonLimparNome.Location = new System.Drawing.Point(115, 469);
             this.buttonLimparNome.Name = "buttonLimparNome";
             this.buttonLimparNome.Size = new System.Drawing.Size(112, 29);
-            this.buttonLimparNome.TabIndex = 23;
+            this.buttonLimparNome.TabIndex = 4;
             this.buttonLimparNome.Text = "Limpar Nome";
             this.buttonLimparNome.UseVisualStyleBackColor = true;
             this.buttonLimparNome.Click += new System.EventHandler(this.buttonLimparNome_Click);
@@ -59,7 +59,7 @@ namespace WinForms.FormApp.UserControls.Demonstracao
             this.buttonNome.Location = new System.Drawing.Point(15, 469);
             this.buttonNome.Name = "buttonNome";
             this.buttonNome.Size = new System.Drawing.Size(94, 29);
-            this.buttonNome.TabIndex = 22;
+            this.buttonNome.TabIndex = 3;
             this.buttonNome.Text = "Assinar";
             this.buttonNome.UseVisualStyleBackColor = true;
             this.buttonNome.Click += new System.EventHandler(this.buttonNome_Click);
@@ -70,7 +70,7 @@ namespace WinForms.FormApp.UserControls.Demonstracao
             this.textBoxNome.Location = new System.Drawing.Point(15, 424);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(335, 27);
-            this.textBoxNome.TabIndex = 21;
+            this.textBoxNome.TabIndex = 2;
             // 
             // labelNome
             // 
@@ -126,7 +126,7 @@ namespace WinForms.FormApp.UserControls.Demonstracao
             this.buttonLimparCampos.Location = new System.Drawing.Point(529, 19);
             this.buttonLimparCampos.Name = "buttonLimparCampos";
             this.buttonLimparCampos.Size = new System.Drawing.Size(94, 29);
-            this.buttonLimparCampos.TabIndex = 14;
+            this.buttonLimparCampos.TabIndex = 1;
             this.buttonLimparCampos.Text = "Limpar";
             this.buttonLimparCampos.UseVisualStyleBackColor = true;
             this.buttonLimparCampos.Click += new System.EventHandler(this.buttonLimparCampos_Click);
@@ -149,7 +149,7 @@ namespace WinForms.FormApp.UserControls.Demonstracao
             this.textBoxInput.Location = new System.Drawing.Point(15, 19);
             this.textBoxInput.Name = "textBoxInput";
             this.textBoxInput.Size = new System.Drawing.Size(125, 27);
-            this.textBoxInput.TabIndex = 12;
+            this.textBoxInput.TabIndex = 0;
             this.textBoxInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxInput_KeyDown);
             // 
             // DemonstracaoKeyUC
