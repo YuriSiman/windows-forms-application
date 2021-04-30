@@ -204,6 +204,7 @@ namespace WinForms.FormApp
             this.tabControlWindows.SelectedIndex = 0;
             this.tabControlWindows.Size = new System.Drawing.Size(800, 422);
             this.tabControlWindows.TabIndex = 7;
+            this.tabControlWindows.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControlWindows_MouseDown);
             // 
             // MainForm
             // 
@@ -216,7 +217,6 @@ namespace WinForms.FormApp
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WinForms Application";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.ResumeLayout(false);

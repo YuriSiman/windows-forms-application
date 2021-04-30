@@ -45,6 +45,22 @@ namespace WinForms.FormApp
             return toolMenuItem;
         }
 
+        private void ApagarAbasEsquerda(int tabSelecionada)
+        {
+            for (int i = tabSelecionada - 1; i >= 0; i--)
+            {
+                tabControlWindows.TabPages.Remove(tabControlWindows.TabPages[i]);
+            }
+        }
+
+        private void ApagarAbasDireita(int tabSelecionada)
+        {
+            for (int i = tabControlWindows.TabCount - 1; i > tabSelecionada; i--)
+            {
+                tabControlWindows.TabPages.Remove(tabControlWindows.TabPages[i]);
+            }
+        }
+
         private void toolStripMenuItemDemonstracao_Click(object sender, EventArgs e)
         {
             tabPagContDemonstracao++;
@@ -87,7 +103,7 @@ namespace WinForms.FormApp
 
         private void toolStripMenuItemFecharAba_Click(object sender, EventArgs e)
         {
-            if(!(tabControlWindows.SelectedTab == null)) tabControlWindows.TabPages.Remove(tabControlWindows.SelectedTab);
+            if (!(tabControlWindows.SelectedTab == null)) tabControlWindows.TabPages.Remove(tabControlWindows.SelectedTab);
         }
 
         private void toolStripMenuItemNovoUsuario_Click(object sender, EventArgs e)
@@ -159,16 +175,47 @@ namespace WinForms.FormApp
             }
         }
 
-        private void MainForm_MouseDown(object sender, MouseEventArgs e)
+        private void tabControlWindows_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
                 var contextMenu = new ContextMenuStrip();
-               
-                contextMenu.Items.Add(DesenhaItemMenu("Item Menu 1"));
-                contextMenu.Items.Add(DesenhaItemMenu("Item Menu 2"));
+                var toolMenuItem1 = DesenhaItemMenu("Fechar Aba");
+                var toolMenuItem2 = DesenhaItemMenu("Fechar Todas as Abas da Esquerda");
+                var toolMenuItem3 = DesenhaItemMenu("Fechar Todas as Abas da Direita");
+                var toolMenuItem4 = DesenhaItemMenu("Fechar Todas as Abas");
+                contextMenu.Items.Add(toolMenuItem1);
+                contextMenu.Items.Add(toolMenuItem2);
+                contextMenu.Items.Add(toolMenuItem3);
+                contextMenu.Items.Add(toolMenuItem4);
                 contextMenu.Show(this, new Point(e.X, e.Y));
+                toolMenuItem1.Click += new EventHandler(toolMenuItem1_Click);
+                toolMenuItem2.Click += new EventHandler(toolMenuItem2_Click);
+                toolMenuItem3.Click += new EventHandler(toolMenuItem3_Click);
+                toolMenuItem4.Click += new EventHandler(toolMenuItem4_Click);
             }
+        }
+
+        private void toolMenuItem1_Click(object sender, EventArgs e)
+        {
+            tabControlWindows.TabPages.Remove(tabControlWindows.SelectedTab);
+        }
+
+        private void toolMenuItem2_Click(object sender, EventArgs e)
+        {
+            ApagarAbasEsquerda(tabControlWindows.SelectedIndex);
+        }
+
+        private void toolMenuItem3_Click(object sender, EventArgs e)
+        {
+            ApagarAbasDireita(tabControlWindows.SelectedIndex);
+        }
+
+        private void toolMenuItem4_Click(object sender, EventArgs e)
+        {
+            ApagarAbasEsquerda(tabControlWindows.SelectedIndex);
+            ApagarAbasDireita(tabControlWindows.SelectedIndex);
+            tabControlWindows.TabPages.Remove(tabControlWindows.SelectedTab);
         }
 
         private void toolStripMenuItemSair_Click(object sender, EventArgs e)
