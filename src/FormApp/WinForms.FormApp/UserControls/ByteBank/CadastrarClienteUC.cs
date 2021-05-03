@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinForms.Domain.Entities;
 
 namespace WinForms.FormApp.UserControls.ByteBank
 {
@@ -34,6 +36,23 @@ namespace WinForms.FormApp.UserControls.ByteBank
             {
                 ClienteTrabalhaAtualmente(true);
             }
+        }
+
+        private void newToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cliente c = new Cliente();
+
+                c.Id = textBoxCodigoCliente.Text;
+                c.Validate();
+                MessageBox.Show("Classe iniciada sem erros", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show(ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
     }
 }

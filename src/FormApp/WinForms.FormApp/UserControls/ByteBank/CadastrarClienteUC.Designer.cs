@@ -79,7 +79,6 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelCidade = new System.Windows.Forms.Label();
             this.groupBoxCodigoCliente = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -93,6 +92,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.textBoxCodigoCliente = new System.Windows.Forms.TextBox();
             this.groupBoxDadosPessoais.SuspendLayout();
             this.groupBoxSexo.SuspendLayout();
             this.groupBoxNaoTrabalho.SuspendLayout();
@@ -579,20 +579,13 @@ namespace WinForms.FormApp.UserControls.ByteBank
             // 
             // groupBoxCodigoCliente
             // 
-            this.groupBoxCodigoCliente.Controls.Add(this.maskedTextBox2);
+            this.groupBoxCodigoCliente.Controls.Add(this.textBoxCodigoCliente);
             this.groupBoxCodigoCliente.Location = new System.Drawing.Point(28, 57);
             this.groupBoxCodigoCliente.Name = "groupBoxCodigoCliente";
             this.groupBoxCodigoCliente.Size = new System.Drawing.Size(261, 98);
             this.groupBoxCodigoCliente.TabIndex = 37;
             this.groupBoxCodigoCliente.TabStop = false;
             this.groupBoxCodigoCliente.Text = "Código do Cliente";
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(19, 50);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(184, 27);
-            this.maskedTextBox2.TabIndex = 0;
             // 
             // toolStrip1
             // 
@@ -624,6 +617,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.newToolStripButton.Name = "newToolStripButton";
             this.newToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.newToolStripButton.Text = "&Novo";
+            this.newToolStripButton.Click += new System.EventHandler(this.newToolStripButton_Click);
             // 
             // openToolStripButton
             // 
@@ -716,6 +710,13 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.helpToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.helpToolStripButton.Text = "&Help";
             // 
+            // textBoxCodigoCliente
+            // 
+            this.textBoxCodigoCliente.Location = new System.Drawing.Point(17, 48);
+            this.textBoxCodigoCliente.Name = "textBoxCodigoCliente";
+            this.textBoxCodigoCliente.Size = new System.Drawing.Size(188, 27);
+            this.textBoxCodigoCliente.TabIndex = 0;
+            // 
             // CadastrarClienteUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -726,7 +727,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.Controls.Add(this.groupBoxEndereco);
             this.Controls.Add(this.groupBoxDadosPessoais);
             this.Name = "CadastrarClienteUC";
-            this.Size = new System.Drawing.Size(1235, 594);
+            this.Size = new System.Drawing.Size(1214, 573);
             this.groupBoxDadosPessoais.ResumeLayout(false);
             this.groupBoxDadosPessoais.PerformLayout();
             this.groupBoxSexo.ResumeLayout(false);
@@ -782,7 +783,6 @@ namespace WinForms.FormApp.UserControls.ByteBank
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label labelCidade;
         private System.Windows.Forms.GroupBox groupBoxCodigoCliente;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
         private System.Windows.Forms.GroupBox groupBoxNaoTrabalho;
         private System.Windows.Forms.CheckBox checkBoxDesempregado;
         private System.Windows.Forms.Label labelCelular;
@@ -810,5 +810,6 @@ namespace WinForms.FormApp.UserControls.ByteBank
         private System.Windows.Forms.ToolStripButton limparToolStripButton;
         private System.Windows.Forms.ToolStripButton toolStripButtonExcluir;
         private System.Windows.Forms.ToolStripButton excluirToolStripButton;
+        private System.Windows.Forms.TextBox textBoxCodigoCliente;
     }
 }

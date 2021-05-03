@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Domain\WinForms.Domain\WinForms.Domain.csproj" />
     <ProjectReference Include="..\..\Library\WinForms.Library\WinForms.Library.csproj" />
   </ItemGroup>
 
