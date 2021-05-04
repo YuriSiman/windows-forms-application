@@ -75,10 +75,11 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.groupBoxEndereco = new System.Windows.Forms.GroupBox();
             this.comboBoxEstados = new System.Windows.Forms.ComboBox();
             this.labelNumero = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.maskedTextBoxNumero = new System.Windows.Forms.MaskedTextBox();
+            this.textBoxCidade = new System.Windows.Forms.TextBox();
             this.labelCidade = new System.Windows.Forms.Label();
             this.groupBoxCodigoCliente = new System.Windows.Forms.GroupBox();
+            this.textBoxCodigoCliente = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -92,7 +93,6 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.textBoxCodigoCliente = new System.Windows.Forms.TextBox();
             this.groupBoxDadosPessoais.SuspendLayout();
             this.groupBoxSexo.SuspendLayout();
             this.groupBoxNaoTrabalho.SuspendLayout();
@@ -488,8 +488,8 @@ namespace WinForms.FormApp.UserControls.ByteBank
             // 
             this.groupBoxEndereco.Controls.Add(this.comboBoxEstados);
             this.groupBoxEndereco.Controls.Add(this.labelNumero);
-            this.groupBoxEndereco.Controls.Add(this.maskedTextBox1);
-            this.groupBoxEndereco.Controls.Add(this.textBox1);
+            this.groupBoxEndereco.Controls.Add(this.maskedTextBoxNumero);
+            this.groupBoxEndereco.Controls.Add(this.textBoxCidade);
             this.groupBoxEndereco.Controls.Add(this.labelCidade);
             this.groupBoxEndereco.Controls.Add(this.textBoxLogradouro);
             this.groupBoxEndereco.Controls.Add(this.labelCEP);
@@ -554,19 +554,19 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.labelNumero.TabIndex = 27;
             this.labelNumero.Text = "Nº";
             // 
-            // maskedTextBox1
+            // maskedTextBoxNumero
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(403, 176);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(84, 27);
-            this.maskedTextBox1.TabIndex = 17;
+            this.maskedTextBoxNumero.Location = new System.Drawing.Point(403, 176);
+            this.maskedTextBoxNumero.Name = "maskedTextBoxNumero";
+            this.maskedTextBoxNumero.Size = new System.Drawing.Size(84, 27);
+            this.maskedTextBoxNumero.TabIndex = 17;
             // 
-            // textBox1
+            // textBoxCidade
             // 
-            this.textBox1.Location = new System.Drawing.Point(493, 176);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(801, 27);
-            this.textBox1.TabIndex = 18;
+            this.textBoxCidade.Location = new System.Drawing.Point(493, 176);
+            this.textBoxCidade.Name = "textBoxCidade";
+            this.textBoxCidade.Size = new System.Drawing.Size(801, 27);
+            this.textBoxCidade.TabIndex = 18;
             // 
             // labelCidade
             // 
@@ -586,6 +586,13 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.groupBoxCodigoCliente.TabIndex = 37;
             this.groupBoxCodigoCliente.TabStop = false;
             this.groupBoxCodigoCliente.Text = "Código do Cliente";
+            // 
+            // textBoxCodigoCliente
+            // 
+            this.textBoxCodigoCliente.Location = new System.Drawing.Point(17, 48);
+            this.textBoxCodigoCliente.Name = "textBoxCodigoCliente";
+            this.textBoxCodigoCliente.Size = new System.Drawing.Size(188, 27);
+            this.textBoxCodigoCliente.TabIndex = 0;
             // 
             // toolStrip1
             // 
@@ -710,13 +717,6 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.helpToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.helpToolStripButton.Text = "&Help";
             // 
-            // textBoxCodigoCliente
-            // 
-            this.textBoxCodigoCliente.Location = new System.Drawing.Point(17, 48);
-            this.textBoxCodigoCliente.Name = "textBoxCodigoCliente";
-            this.textBoxCodigoCliente.Size = new System.Drawing.Size(188, 27);
-            this.textBoxCodigoCliente.TabIndex = 0;
-            // 
             // CadastrarClienteUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -727,7 +727,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.Controls.Add(this.groupBoxEndereco);
             this.Controls.Add(this.groupBoxDadosPessoais);
             this.Name = "CadastrarClienteUC";
-            this.Size = new System.Drawing.Size(1214, 573);
+            this.Size = new System.Drawing.Size(1193, 552);
             this.groupBoxDadosPessoais.ResumeLayout(false);
             this.groupBoxDadosPessoais.PerformLayout();
             this.groupBoxSexo.ResumeLayout(false);
@@ -779,8 +779,8 @@ namespace WinForms.FormApp.UserControls.ByteBank
         private System.Windows.Forms.GroupBox groupBoxDadosPessoais;
         private System.Windows.Forms.GroupBox groupBoxEndereco;
         private System.Windows.Forms.Label labelNumero;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxNumero;
+        private System.Windows.Forms.TextBox textBoxCidade;
         private System.Windows.Forms.Label labelCidade;
         private System.Windows.Forms.GroupBox groupBoxCodigoCliente;
         private System.Windows.Forms.GroupBox groupBoxNaoTrabalho;
