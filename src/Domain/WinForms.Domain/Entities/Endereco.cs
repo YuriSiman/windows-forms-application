@@ -17,7 +17,7 @@ namespace WinForms.Domain.Entities
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public string Bairro { get; set; }
         public string Complemento { get; set; }
-        public int Numero { get; set; }
+        public string Numero { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public string Cidade { get; set; }

@@ -47,7 +47,6 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.textBoxBairro = new System.Windows.Forms.TextBox();
             this.labelBairro = new System.Windows.Forms.Label();
             this.labelEstado = new System.Windows.Forms.Label();
-            this.maskedTextBoxEmail = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxDataNascimento = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxRendaFamiliar = new System.Windows.Forms.MaskedTextBox();
             this.labelRendaFamiliar = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.labelSalarioAtual = new System.Windows.Forms.Label();
             this.maskedTextBoxSalarioAtual = new System.Windows.Forms.MaskedTextBox();
             this.groupBoxDadosPessoais = new System.Windows.Forms.GroupBox();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.labelDescricao = new System.Windows.Forms.Label();
             this.maskedTextBoxTelefone = new System.Windows.Forms.MaskedTextBox();
             this.textBoxDescricao = new System.Windows.Forms.TextBox();
@@ -73,9 +73,9 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.groupBoxNaoTrabalho = new System.Windows.Forms.GroupBox();
             this.checkBoxDesempregado = new System.Windows.Forms.CheckBox();
             this.groupBoxEndereco = new System.Windows.Forms.GroupBox();
+            this.textBoxNumero = new System.Windows.Forms.TextBox();
             this.comboBoxEstados = new System.Windows.Forms.ComboBox();
             this.labelNumero = new System.Windows.Forms.Label();
-            this.maskedTextBoxNumero = new System.Windows.Forms.MaskedTextBox();
             this.textBoxCidade = new System.Windows.Forms.TextBox();
             this.labelCidade = new System.Windows.Forms.Label();
             this.groupBoxCodigoCliente = new System.Windows.Forms.GroupBox();
@@ -84,7 +84,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.limparToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.cleanToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.excluirToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -113,6 +113,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             // maskedTextBoxCPF
             // 
             this.maskedTextBoxCPF.Location = new System.Drawing.Point(17, 60);
+            this.maskedTextBoxCPF.Mask = "000,000,000-00";
             this.maskedTextBoxCPF.Name = "maskedTextBoxCPF";
             this.maskedTextBoxCPF.Size = new System.Drawing.Size(283, 27);
             this.maskedTextBoxCPF.TabIndex = 1;
@@ -170,9 +171,11 @@ namespace WinForms.FormApp.UserControls.ByteBank
             // maskedTextBoxCEP
             // 
             this.maskedTextBoxCEP.Location = new System.Drawing.Point(19, 55);
+            this.maskedTextBoxCEP.Mask = "00000-000";
             this.maskedTextBoxCEP.Name = "maskedTextBoxCEP";
             this.maskedTextBoxCEP.Size = new System.Drawing.Size(152, 27);
-            this.maskedTextBoxCEP.TabIndex = 13;
+            this.maskedTextBoxCEP.TabIndex = 17;
+            this.maskedTextBoxCEP.Leave += new System.EventHandler(this.maskedTextBoxCEP_Leave);
             // 
             // labelCEP
             // 
@@ -188,7 +191,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.textBoxLogradouro.Location = new System.Drawing.Point(19, 113);
             this.textBoxLogradouro.Name = "textBoxLogradouro";
             this.textBoxLogradouro.Size = new System.Drawing.Size(680, 27);
-            this.textBoxLogradouro.TabIndex = 14;
+            this.textBoxLogradouro.TabIndex = 18;
             // 
             // labelLogradouro
             // 
@@ -204,7 +207,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.textBoxComplemento.Location = new System.Drawing.Point(19, 176);
             this.textBoxComplemento.Name = "textBoxComplemento";
             this.textBoxComplemento.Size = new System.Drawing.Size(378, 27);
-            this.textBoxComplemento.TabIndex = 16;
+            this.textBoxComplemento.TabIndex = 20;
             // 
             // labelComplemento
             // 
@@ -220,7 +223,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.textBoxBairro.Location = new System.Drawing.Point(705, 113);
             this.textBoxBairro.Name = "textBoxBairro";
             this.textBoxBairro.Size = new System.Drawing.Size(682, 27);
-            this.textBoxBairro.TabIndex = 15;
+            this.textBoxBairro.TabIndex = 19;
             // 
             // labelBairro
             // 
@@ -240,26 +243,21 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.labelEstado.TabIndex = 18;
             this.labelEstado.Text = "Estado";
             // 
-            // maskedTextBoxEmail
-            // 
-            this.maskedTextBoxEmail.Location = new System.Drawing.Point(17, 245);
-            this.maskedTextBoxEmail.Name = "maskedTextBoxEmail";
-            this.maskedTextBoxEmail.Size = new System.Drawing.Size(682, 27);
-            this.maskedTextBoxEmail.TabIndex = 8;
-            // 
             // maskedTextBoxDataNascimento
             // 
             this.maskedTextBoxDataNascimento.Location = new System.Drawing.Point(211, 312);
+            this.maskedTextBoxDataNascimento.Mask = "00/00/0000";
             this.maskedTextBoxDataNascimento.Name = "maskedTextBoxDataNascimento";
             this.maskedTextBoxDataNascimento.Size = new System.Drawing.Size(140, 27);
-            this.maskedTextBoxDataNascimento.TabIndex = 9;
+            this.maskedTextBoxDataNascimento.TabIndex = 13;
             // 
             // maskedTextBoxRendaFamiliar
             // 
             this.maskedTextBoxRendaFamiliar.Location = new System.Drawing.Point(19, 237);
+            this.maskedTextBoxRendaFamiliar.Mask = "$ 000,000.00";
             this.maskedTextBoxRendaFamiliar.Name = "maskedTextBoxRendaFamiliar";
             this.maskedTextBoxRendaFamiliar.Size = new System.Drawing.Size(152, 27);
-            this.maskedTextBoxRendaFamiliar.TabIndex = 20;
+            this.maskedTextBoxRendaFamiliar.TabIndex = 24;
             // 
             // labelRendaFamiliar
             // 
@@ -275,7 +273,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.textBoxEstadoCivil.Location = new System.Drawing.Point(211, 372);
             this.textBoxEstadoCivil.Name = "textBoxEstadoCivil";
             this.textBoxEstadoCivil.Size = new System.Drawing.Size(140, 27);
-            this.textBoxEstadoCivil.TabIndex = 10;
+            this.textBoxEstadoCivil.TabIndex = 16;
             // 
             // labelEstadoCivil
             // 
@@ -330,12 +328,14 @@ namespace WinForms.FormApp.UserControls.ByteBank
             // maskedTextBoxSalarioAtual
             // 
             this.maskedTextBoxSalarioAtual.Location = new System.Drawing.Point(1215, 182);
+            this.maskedTextBoxSalarioAtual.Mask = "$ 000,000.00";
             this.maskedTextBoxSalarioAtual.Name = "maskedTextBoxSalarioAtual";
             this.maskedTextBoxSalarioAtual.Size = new System.Drawing.Size(172, 27);
             this.maskedTextBoxSalarioAtual.TabIndex = 7;
             // 
             // groupBoxDadosPessoais
             // 
+            this.groupBoxDadosPessoais.Controls.Add(this.textBoxEmail);
             this.groupBoxDadosPessoais.Controls.Add(this.labelDescricao);
             this.groupBoxDadosPessoais.Controls.Add(this.maskedTextBoxTelefone);
             this.groupBoxDadosPessoais.Controls.Add(this.textBoxDescricao);
@@ -360,7 +360,6 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.groupBoxDadosPessoais.Controls.Add(this.textBoxEstadoCivil);
             this.groupBoxDadosPessoais.Controls.Add(this.labelDataNascimento);
             this.groupBoxDadosPessoais.Controls.Add(this.labelEstadoCivil);
-            this.groupBoxDadosPessoais.Controls.Add(this.maskedTextBoxEmail);
             this.groupBoxDadosPessoais.Controls.Add(this.maskedTextBoxDataNascimento);
             this.groupBoxDadosPessoais.Location = new System.Drawing.Point(28, 193);
             this.groupBoxDadosPessoais.Name = "groupBoxDadosPessoais";
@@ -368,6 +367,13 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.groupBoxDadosPessoais.TabIndex = 35;
             this.groupBoxDadosPessoais.TabStop = false;
             this.groupBoxDadosPessoais.Text = "Dados Pessoais";
+            // 
+            // textBoxEmail
+            // 
+            this.textBoxEmail.Location = new System.Drawing.Point(17, 245);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(682, 27);
+            this.textBoxEmail.TabIndex = 8;
             // 
             // labelDescricao
             // 
@@ -381,9 +387,10 @@ namespace WinForms.FormApp.UserControls.ByteBank
             // maskedTextBoxTelefone
             // 
             this.maskedTextBoxTelefone.Location = new System.Drawing.Point(528, 312);
+            this.maskedTextBoxTelefone.Mask = "(00) 0000-0000";
             this.maskedTextBoxTelefone.Name = "maskedTextBoxTelefone";
             this.maskedTextBoxTelefone.Size = new System.Drawing.Size(171, 27);
-            this.maskedTextBoxTelefone.TabIndex = 41;
+            this.maskedTextBoxTelefone.TabIndex = 15;
             // 
             // textBoxDescricao
             // 
@@ -392,7 +399,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.textBoxDescricao.Name = "textBoxDescricao";
             this.textBoxDescricao.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxDescricao.Size = new System.Drawing.Size(682, 154);
-            this.textBoxDescricao.TabIndex = 40;
+            this.textBoxDescricao.TabIndex = 9;
             // 
             // labelTelefone
             // 
@@ -421,7 +428,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.radioButtonOutros.Location = new System.Drawing.Point(6, 86);
             this.radioButtonOutros.Name = "radioButtonOutros";
             this.radioButtonOutros.Size = new System.Drawing.Size(74, 24);
-            this.radioButtonOutros.TabIndex = 2;
+            this.radioButtonOutros.TabIndex = 12;
             this.radioButtonOutros.TabStop = true;
             this.radioButtonOutros.Text = "Outros";
             this.radioButtonOutros.UseVisualStyleBackColor = true;
@@ -432,7 +439,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.radioButtonFeminino.Location = new System.Drawing.Point(6, 56);
             this.radioButtonFeminino.Name = "radioButtonFeminino";
             this.radioButtonFeminino.Size = new System.Drawing.Size(91, 24);
-            this.radioButtonFeminino.TabIndex = 1;
+            this.radioButtonFeminino.TabIndex = 11;
             this.radioButtonFeminino.TabStop = true;
             this.radioButtonFeminino.Text = "Feminino";
             this.radioButtonFeminino.UseVisualStyleBackColor = true;
@@ -443,7 +450,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.radioButtonMasculino.Location = new System.Drawing.Point(6, 26);
             this.radioButtonMasculino.Name = "radioButtonMasculino";
             this.radioButtonMasculino.Size = new System.Drawing.Size(97, 24);
-            this.radioButtonMasculino.TabIndex = 0;
+            this.radioButtonMasculino.TabIndex = 10;
             this.radioButtonMasculino.TabStop = true;
             this.radioButtonMasculino.Text = "Masculino";
             this.radioButtonMasculino.UseVisualStyleBackColor = true;
@@ -460,9 +467,10 @@ namespace WinForms.FormApp.UserControls.ByteBank
             // maskedTextBoxCelular
             // 
             this.maskedTextBoxCelular.Location = new System.Drawing.Point(357, 312);
+            this.maskedTextBoxCelular.Mask = "(00) 00000-0000";
             this.maskedTextBoxCelular.Name = "maskedTextBoxCelular";
             this.maskedTextBoxCelular.Size = new System.Drawing.Size(165, 27);
-            this.maskedTextBoxCelular.TabIndex = 11;
+            this.maskedTextBoxCelular.TabIndex = 14;
             // 
             // groupBoxNaoTrabalho
             // 
@@ -486,9 +494,9 @@ namespace WinForms.FormApp.UserControls.ByteBank
             // 
             // groupBoxEndereco
             // 
+            this.groupBoxEndereco.Controls.Add(this.textBoxNumero);
             this.groupBoxEndereco.Controls.Add(this.comboBoxEstados);
             this.groupBoxEndereco.Controls.Add(this.labelNumero);
-            this.groupBoxEndereco.Controls.Add(this.maskedTextBoxNumero);
             this.groupBoxEndereco.Controls.Add(this.textBoxCidade);
             this.groupBoxEndereco.Controls.Add(this.labelCidade);
             this.groupBoxEndereco.Controls.Add(this.textBoxLogradouro);
@@ -508,6 +516,13 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.groupBoxEndereco.TabIndex = 36;
             this.groupBoxEndereco.TabStop = false;
             this.groupBoxEndereco.Text = "Endereço";
+            // 
+            // textBoxNumero
+            // 
+            this.textBoxNumero.Location = new System.Drawing.Point(403, 176);
+            this.textBoxNumero.Name = "textBoxNumero";
+            this.textBoxNumero.Size = new System.Drawing.Size(84, 27);
+            this.textBoxNumero.TabIndex = 21;
             // 
             // comboBoxEstados
             // 
@@ -543,7 +558,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.comboBoxEstados.Location = new System.Drawing.Point(1300, 176);
             this.comboBoxEstados.Name = "comboBoxEstados";
             this.comboBoxEstados.Size = new System.Drawing.Size(87, 28);
-            this.comboBoxEstados.TabIndex = 28;
+            this.comboBoxEstados.TabIndex = 23;
             // 
             // labelNumero
             // 
@@ -554,19 +569,12 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.labelNumero.TabIndex = 27;
             this.labelNumero.Text = "Nº";
             // 
-            // maskedTextBoxNumero
-            // 
-            this.maskedTextBoxNumero.Location = new System.Drawing.Point(403, 176);
-            this.maskedTextBoxNumero.Name = "maskedTextBoxNumero";
-            this.maskedTextBoxNumero.Size = new System.Drawing.Size(84, 27);
-            this.maskedTextBoxNumero.TabIndex = 17;
-            // 
             // textBoxCidade
             // 
             this.textBoxCidade.Location = new System.Drawing.Point(493, 176);
             this.textBoxCidade.Name = "textBoxCidade";
             this.textBoxCidade.Size = new System.Drawing.Size(801, 27);
-            this.textBoxCidade.TabIndex = 18;
+            this.textBoxCidade.TabIndex = 22;
             // 
             // labelCidade
             // 
@@ -601,7 +609,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.newToolStripButton,
             this.openToolStripButton,
             this.saveToolStripButton,
-            this.limparToolStripButton,
+            this.cleanToolStripButton,
             this.excluirToolStripButton,
             this.printToolStripButton,
             this.toolStripSeparator,
@@ -644,14 +652,15 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.saveToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.saveToolStripButton.Text = "&Salvar";
             // 
-            // limparToolStripButton
+            // cleanToolStripButton
             // 
-            this.limparToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.limparToolStripButton.Image = global::WinForms.FormApp.Properties.Resources.LimparBarra;
-            this.limparToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.limparToolStripButton.Name = "limparToolStripButton";
-            this.limparToolStripButton.Size = new System.Drawing.Size(29, 24);
-            this.limparToolStripButton.Text = "&Limpar";
+            this.cleanToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cleanToolStripButton.Image = global::WinForms.FormApp.Properties.Resources.LimparBarra;
+            this.cleanToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cleanToolStripButton.Name = "cleanToolStripButton";
+            this.cleanToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.cleanToolStripButton.Text = "&Limpar";
+            this.cleanToolStripButton.Click += new System.EventHandler(this.cleanToolStripButton_Click);
             // 
             // excluirToolStripButton
             // 
@@ -727,7 +736,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.Controls.Add(this.groupBoxEndereco);
             this.Controls.Add(this.groupBoxDadosPessoais);
             this.Name = "CadastrarClienteUC";
-            this.Size = new System.Drawing.Size(1193, 552);
+            this.Size = new System.Drawing.Size(1067, 426);
             this.groupBoxDadosPessoais.ResumeLayout(false);
             this.groupBoxDadosPessoais.PerformLayout();
             this.groupBoxSexo.ResumeLayout(false);
@@ -764,7 +773,6 @@ namespace WinForms.FormApp.UserControls.ByteBank
         private System.Windows.Forms.TextBox textBoxBairro;
         private System.Windows.Forms.Label labelBairro;
         private System.Windows.Forms.Label labelEstado;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxEmail;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxDataNascimento;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxRendaFamiliar;
         private System.Windows.Forms.Label labelRendaFamiliar;
@@ -779,7 +787,6 @@ namespace WinForms.FormApp.UserControls.ByteBank
         private System.Windows.Forms.GroupBox groupBoxDadosPessoais;
         private System.Windows.Forms.GroupBox groupBoxEndereco;
         private System.Windows.Forms.Label labelNumero;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxNumero;
         private System.Windows.Forms.TextBox textBoxCidade;
         private System.Windows.Forms.Label labelCidade;
         private System.Windows.Forms.GroupBox groupBoxCodigoCliente;
@@ -807,9 +814,11 @@ namespace WinForms.FormApp.UserControls.ByteBank
         private System.Windows.Forms.ToolStripButton pasteToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
-        private System.Windows.Forms.ToolStripButton limparToolStripButton;
+        private System.Windows.Forms.ToolStripButton cleanToolStripButton;
         private System.Windows.Forms.ToolStripButton toolStripButtonExcluir;
         private System.Windows.Forms.ToolStripButton excluirToolStripButton;
         private System.Windows.Forms.TextBox textBoxCodigoCliente;
+        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.TextBox textBoxNumero;
     }
 }

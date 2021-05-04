@@ -26,7 +26,7 @@ namespace WinForms.Domain.Entities
         public string Profissao { get; set; }
 
         [RegularExpression("([0-9]+)", ErrorMessage = "Gentileza informar somente valores numéricos no campo Salário Atual")]
-        public double SalarioAtual { get; set; }
+        public string SalarioAtual { get; set; }
 
         public bool Desempregado { get; set; }
 
@@ -38,7 +38,7 @@ namespace WinForms.Domain.Entities
         public string Sexo { get; set; }
 
         [Required(ErrorMessage = "O campo Data de Nascimento é obrigatório")]
-        public DateTime DataNascimento { get; set; }
+        public string DataNascimento { get; set; }
 
         [RegularExpression("([0-9]+)", ErrorMessage = "Gentileza informar somente valores numéricos no campo {0}")]
         public string Celular { get; set; }
@@ -52,7 +52,7 @@ namespace WinForms.Domain.Entities
         [Required(ErrorMessage = "O campo Renda Familiar é obrigatório")]
         [Range(0, double.MaxValue, ErrorMessage = "Renda Familiar deve ser um valor positivo")]
         [RegularExpression("([0-9]+)", ErrorMessage = "Gentileza informar somente valores numéricos no campo Renda Familiar")]
-        public double RendaFamiliar { get; set; }
+        public string RendaFamiliar { get; set; }
 
         public Endereco Endereco { get; set; }
 
