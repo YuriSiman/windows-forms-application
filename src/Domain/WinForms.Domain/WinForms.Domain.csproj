@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\WinForms.Data\WinForms.Data.csproj" />
     <ProjectReference Include="..\..\Library\WinForms.Library\WinForms.Library.csproj" />
   </ItemGroup>
 
