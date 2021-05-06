@@ -114,7 +114,8 @@ namespace WinForms.FormApp.UserControls.ByteBank
                 c = LeituraFormulario();
                 c.Validate();
                 c.ValidaInformacoes();
-                MessageBox.Show("Classe iniciada sem erros", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string clienteJson = c.SerializedCliente(c);
+                MessageBox.Show($"Cliente incluído: {clienteJson}", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException ex)
             {

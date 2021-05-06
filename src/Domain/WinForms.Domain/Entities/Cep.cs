@@ -19,6 +19,11 @@ namespace WinForms.Domain.Entities
         public string IBGE { get; set; }
         public string GIA { get; set; }
 
+        public string SerializedCliente(Cep cep)
+        {
+            return JsonConvert.SerializeObject(cep);
+        }
+
         public Cep DesSerializedCep(string json)
         {
             return JsonConvert.DeserializeObject<Cep>(json);

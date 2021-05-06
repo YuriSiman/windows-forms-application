@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -55,6 +56,16 @@ namespace WinForms.Domain.Entities
         public string RendaFamiliar { get; set; }
 
         public Endereco Endereco { get; set; }
+
+        public string SerializedCliente(Cliente cliente)
+        {
+            return JsonConvert.SerializeObject(cliente);
+        }
+
+        public Cliente DesSerializedCliente(string json)
+        {
+            return JsonConvert.DeserializeObject<Cliente>(json);
+        }
 
         public void Validate()
         {
