@@ -31,22 +31,6 @@ namespace WinForms.Data.Database
             }
         }
 
-        public string SqlCommand(string sql)
-        {
-            try
-            {
-                var myCommand = new SqlCommand(sql, conn);
-                myCommand.CommandTimeout = 0;
-                var myReader = myCommand.ExecuteReader();
-                return "";
-            }
-            catch (Exception e)
-            {
-
-                throw new ArgumentException("Erro: " + e.Message);
-            }
-        }
-
         public DataTable SqlQuery(string sql)
         {
             DataTable dt = new DataTable();
@@ -59,10 +43,24 @@ namespace WinForms.Data.Database
             }
             catch (Exception e)
             {
-
                 throw new ArgumentException("Erro: " + e.Message);
             }
             return dt;
+        }
+
+        public string SqlCommand(string sql)
+        {
+            try
+            {
+                var myCommand = new SqlCommand(sql, conn);
+                myCommand.CommandTimeout = 0;
+                var myReader = myCommand.ExecuteReader();
+                return "";
+            }
+            catch (Exception e)
+            {
+                throw new ArgumentException("Erro: " + e.Message);
+            }
         }
 
         public void SqlClose()
