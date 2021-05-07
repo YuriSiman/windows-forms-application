@@ -17,7 +17,7 @@ namespace WinForms.Data.Database
         {
             try
             {
-                connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+                connectionString = "";
                 conn = new SqlConnection(connectionString);
                 conn.Open();
             }
