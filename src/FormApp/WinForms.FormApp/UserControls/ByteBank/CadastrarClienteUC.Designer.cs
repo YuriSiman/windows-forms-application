@@ -79,13 +79,14 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.textBoxCidade = new System.Windows.Forms.TextBox();
             this.labelCidade = new System.Windows.Forms.Label();
             this.groupBoxCodigoCliente = new System.Windows.Forms.GroupBox();
+            this.buttonConsultarCliente = new System.Windows.Forms.Button();
             this.textBoxCodigoCliente = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.cleanToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.excluirToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.cutToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -587,13 +588,23 @@ namespace WinForms.FormApp.UserControls.ByteBank
             // 
             // groupBoxCodigoCliente
             // 
+            this.groupBoxCodigoCliente.Controls.Add(this.buttonConsultarCliente);
             this.groupBoxCodigoCliente.Controls.Add(this.textBoxCodigoCliente);
             this.groupBoxCodigoCliente.Location = new System.Drawing.Point(28, 57);
             this.groupBoxCodigoCliente.Name = "groupBoxCodigoCliente";
-            this.groupBoxCodigoCliente.Size = new System.Drawing.Size(261, 98);
+            this.groupBoxCodigoCliente.Size = new System.Drawing.Size(320, 98);
             this.groupBoxCodigoCliente.TabIndex = 37;
             this.groupBoxCodigoCliente.TabStop = false;
             this.groupBoxCodigoCliente.Text = "Código do Cliente";
+            // 
+            // buttonConsultarCliente
+            // 
+            this.buttonConsultarCliente.Location = new System.Drawing.Point(211, 46);
+            this.buttonConsultarCliente.Name = "buttonConsultarCliente";
+            this.buttonConsultarCliente.Size = new System.Drawing.Size(94, 29);
+            this.buttonConsultarCliente.TabIndex = 1;
+            this.buttonConsultarCliente.Text = "Consultar";
+            this.buttonConsultarCliente.UseVisualStyleBackColor = true;
             // 
             // textBoxCodigoCliente
             // 
@@ -609,8 +620,8 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.newToolStripButton,
             this.openToolStripButton,
             this.saveToolStripButton,
+            this.deleteToolStripButton,
             this.cleanToolStripButton,
-            this.excluirToolStripButton,
             this.printToolStripButton,
             this.toolStripSeparator,
             this.cutToolStripButton,
@@ -620,7 +631,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.helpToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1435, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1443, 27);
             this.toolStrip1.TabIndex = 38;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -642,6 +653,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.openToolStripButton.Name = "openToolStripButton";
             this.openToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.openToolStripButton.Text = "&Abrir";
+            this.openToolStripButton.Click += new System.EventHandler(this.openToolStripButton_Click);
             // 
             // saveToolStripButton
             // 
@@ -651,6 +663,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.saveToolStripButton.Name = "saveToolStripButton";
             this.saveToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.saveToolStripButton.Text = "&Salvar";
+            this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
             // 
             // cleanToolStripButton
             // 
@@ -662,14 +675,15 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.cleanToolStripButton.Text = "&Limpar";
             this.cleanToolStripButton.Click += new System.EventHandler(this.cleanToolStripButton_Click);
             // 
-            // excluirToolStripButton
+            // deleteToolStripButton
             // 
-            this.excluirToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.excluirToolStripButton.Image = global::WinForms.FormApp.Properties.Resources.ExcluirBarra;
-            this.excluirToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.excluirToolStripButton.Name = "excluirToolStripButton";
-            this.excluirToolStripButton.Size = new System.Drawing.Size(29, 24);
-            this.excluirToolStripButton.Text = "&Excluir";
+            this.deleteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteToolStripButton.Image = global::WinForms.FormApp.Properties.Resources.ExcluirBarra;
+            this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteToolStripButton.Name = "deleteToolStripButton";
+            this.deleteToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.deleteToolStripButton.Text = "&Excluir";
+            this.deleteToolStripButton.Click += new System.EventHandler(this.deleteToolStripButton_Click);
             // 
             // printToolStripButton
             // 
@@ -736,7 +750,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
             this.Controls.Add(this.groupBoxEndereco);
             this.Controls.Add(this.groupBoxDadosPessoais);
             this.Name = "CadastrarClienteUC";
-            this.Size = new System.Drawing.Size(1067, 426);
+            this.Size = new System.Drawing.Size(1443, 601);
             this.groupBoxDadosPessoais.ResumeLayout(false);
             this.groupBoxDadosPessoais.PerformLayout();
             this.groupBoxSexo.ResumeLayout(false);
@@ -816,9 +830,10 @@ namespace WinForms.FormApp.UserControls.ByteBank
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.ToolStripButton cleanToolStripButton;
         private System.Windows.Forms.ToolStripButton toolStripButtonExcluir;
-        private System.Windows.Forms.ToolStripButton excluirToolStripButton;
+        private System.Windows.Forms.ToolStripButton deleteToolStripButton;
         private System.Windows.Forms.TextBox textBoxCodigoCliente;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxNumero;
+        private System.Windows.Forms.Button buttonConsultarCliente;
     }
 }

@@ -32,7 +32,7 @@ namespace WinForms.FormApp.UserControls.ByteBank
         private Cliente LeituraFormulario()
         {
             Cliente c = new Cliente();
-            c.Codigo = textBoxCodigoCliente.Text;
+            c.Id = textBoxCodigoCliente.Text;
             c.Nome = textBoxNomeCompleto.Text;
             c.CPF = maskedTextBoxCPF.Text.Replace('.', ' ').Replace('-', ' ').Replace(" ", String.Empty);
             c.Profissao = textBoxProfissao.Text;
@@ -92,8 +92,6 @@ namespace WinForms.FormApp.UserControls.ByteBank
             return e;
         }
 
-        
-
         private void checkBoxNaoTrabalho_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxDesempregado.Checked)
@@ -114,44 +112,109 @@ namespace WinForms.FormApp.UserControls.ByteBank
                 c = LeituraFormulario();
                 c.Validate();
                 c.ValidaInformacoes();
-                string clienteJson = c.SerializedCliente(c);
-                MessageBox.Show($"Cliente incluído: {clienteJson}", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                c.IncluirCliente("Cliente");
+                MessageBox.Show("Cliente incluído com sucesso!", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException ex)
             {
                 MessageBox.Show(ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
         }
 
-        private void maskedTextBoxCEP_Leave(object sender, EventArgs e)
+        private void openToolStripButton_Click(object sender, EventArgs e)
         {
-            var vCep = maskedTextBoxCEP.Text;
-
-            if (vCep.Replace('-',' ').Trim() != "")
+            if(textBoxCodigoCliente.Text == "")
             {
-                Cep cep = new Cep();
-                var json = BuscaCEP.GeraJSONCEP(maskedTextBoxCEP.Text);
-                cep = cep.DesSerializedCep(json);
-                textBoxBairro.Text = cep.Bairro;
-                textBoxCidade.Text = cep.Localidade;
-                textBoxLogradouro.Text = cep.Logradouro;
-
-                comboBoxEstados.SelectedIndex = -1;
-
-                for (int i = 0; i <= comboBoxEstados.Items.Count - 1; i++)
+                MessageBox.Show("O Código do cliente está vazio", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
                 {
-                    var uf = Strings.InStr(comboBoxEstados.Items[i].ToString(), cep.UF);
+                    Cliente c = new Cliente();
+                    c = c.BuscarCliente(textBoxCodigoCliente.Text, "Cliente");
 
-                    if (uf > 0)
+                    if (c == null)
                     {
-                        comboBoxEstados.SelectedIndex = i;
+                        MessageBox.Show("Código do cliente não encontrado", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    else
+                    {
+                        //EscreveFormulario()
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void saveToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxCodigoCliente.Text == "")
+            {
+                MessageBox.Show("O Código do cliente está vazio", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    Cliente c = new Cliente();
+                    c = LeituraFormulario();
+                    c.Validate();
+                    c.ValidaInformacoes();
+                    c.AlterarCliente("Cliente");
+                    MessageBox.Show("Cliente alterado com sucesso!", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void deleteToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxCodigoCliente.Text == "")
+            {
+                MessageBox.Show("O Código do cliente está vazio", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    Cliente c = new Cliente();
+                    c = c.BuscarCliente(textBoxCodigoCliente.Text, "Cliente");
+
+                    if (c == null)
+                    {
+                        MessageBox.Show("Código do cliente não encontrado", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        //EscreveFormulario(C);
+                        if (MessageBox.Show("Deseja realmente excluir o cliente?", "Mensagem de Validação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            c.ExcluirCliente("Cliente");
+                            MessageBox.Show("Cliente apagado com sucesso", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimparFormulario();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void cleanToolStripButton_Click(object sender, EventArgs e)
+        {
+            LimparFormulario();
+        }
+
+        private void LimparFormulario()
         {
             textBoxCodigoCliente.Text = "";
             textBoxNomeCompleto.Text = "";
@@ -177,5 +240,67 @@ namespace WinForms.FormApp.UserControls.ByteBank
             checkBoxDesempregado.Checked = false;
             radioButtonMasculino.Checked = true;
         }
+
+        private void maskedTextBoxCEP_Leave(object sender, EventArgs e)
+        {
+            var vCep = maskedTextBoxCEP.Text;
+
+            if (vCep.Replace('-', ' ').Trim() != "")
+            {
+                Cep cep = new Cep();
+                var json = BuscaCEP.GeraJSONCEP(maskedTextBoxCEP.Text);
+                cep = cep.DesSerializedCep(json);
+                textBoxBairro.Text = cep.Bairro;
+                textBoxCidade.Text = cep.Localidade;
+                textBoxLogradouro.Text = cep.Logradouro;
+
+                comboBoxEstados.SelectedIndex = -1;
+
+                for (int i = 0; i <= comboBoxEstados.Items.Count - 1; i++)
+                {
+                    var uf = Strings.InStr(comboBoxEstados.Items[i].ToString(), cep.UF);
+
+                    if (uf > 0)
+                    {
+                        comboBoxEstados.SelectedIndex = i;
+                    }
+                }
+            }
+        }
+
+        void EscreveCliente(Cliente cliente)
+        {
+            textBoxCodigoCliente.Text = cliente.Id;
+            textBoxNomeCompleto.Text = cliente.Nome;
+            textBoxProfissao.Text = cliente.Profissao;
+            textBoxEmail.Text = cliente.Email;
+            textBoxAtualEmpresa.Text = cliente.EmpresaAtual;
+            textBoxUltimaEmpresa.Text = cliente.UltimaEmpresa;
+
+            maskedTextBoxCEP.Text = cliente.Endereco.CEP;
+            textBoxLogradouro.Text = cliente.Endereco.Logradouro;
+            textBoxBairro.Text = cliente.Endereco.Bairro;
+            textBoxComplemento.Text = cliente.Endereco.Complemento;
+            textBoxNumero.Text = cliente.Endereco.Numero;
+            textBoxCidade.Text = cliente.Endereco.Cidade;
+
+            if (cliente.Endereco.Estado == "")
+            {
+                comboBoxEstados.SelectedIndex = -1;
+            }
+            else
+            {
+                for (int i = 0; i <= comboBoxEstados.Items.Count - 1; i++)
+                {
+                    if (cliente.Endereco.Estado == comboBoxEstados.Items[i].ToString())
+                    {
+                        comboBoxEstados.SelectedIndex = i;
+                    }
+                }
+            }
+
+            maskedTextBoxRendaFamiliar.Text = cliente.RendaFamiliar.ToString();
+        }
+
     }
 }

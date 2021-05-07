@@ -36,7 +36,7 @@ namespace WinForms.Data.Database
 
             try
             {
-                var sql = $"SELECT Id, JSON FROM {tabela} WHERE Id = '{id}'";
+                var sql = $"SELECT Id, JSON FROM Cliente WHERE Id = '{id}'";
                 var dt = db.SqlQuery(sql);
 
                 if(dt.Rows.Count > 0)
@@ -99,7 +99,7 @@ namespace WinForms.Data.Database
 
             try
             {
-                var sql = $"INSERT INTO {tabela} (Id, JSON) VALUES ('{id}', '{json}')";
+                var sql = $"INSERT INTO Cliente (Id, JSON) VALUES ('{id}', '{json}')";
                 db.SqlCommand(sql);
                 status = true;
                 mensagem = $"Inclusão efetuada com sucesso! Identificador: {id}";
@@ -117,12 +117,12 @@ namespace WinForms.Data.Database
 
             try
             {
-                var sql = $"SELECT Id, JSON FROM {tabela} WHERE Id = '{id}'";
+                var sql = $"SELECT Id, JSON FROM Cliente WHERE Id = '{id}'";
                 var dt = db.SqlQuery(sql);
 
                 if (dt.Rows.Count > 0)
                 {
-                    sql = $"UPDATE {tabela} SET JSON = '{json}' WHERE Id = '{id}'";
+                    sql = $"UPDATE Cliente SET JSON = '{json}' WHERE Id = '{id}'";
                     db.SqlCommand(sql);
                     status = true;
                     mensagem = $"Alteração efetuada com sucesso! Identificador: {id}";
@@ -146,12 +146,12 @@ namespace WinForms.Data.Database
 
             try
             {
-                var sql = $"SELECT Id, JSON FROM {tabela} WHERE Id = '{id}'";
+                var sql = $"SELECT Id, JSON FROM Cliente WHERE Id = '{id}'";
                 var dt = db.SqlQuery(sql);
 
                 if (dt.Rows.Count > 0)
                 {
-                    sql = $"DELETE FROM {tabela} WHERE Id = '{id}'";
+                    sql = $"DELETE FROM Cliente WHERE Id = '{id}'";
                     db.SqlCommand(sql);
                     status = true;
                     mensagem = $"Exclusão efetuada com sucesso! Identificador: {id}";
